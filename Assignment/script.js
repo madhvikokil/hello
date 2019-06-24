@@ -1,78 +1,112 @@
-// Validation of Username and password
+  function register() {
+            var fname = document.signup.fname.value;
+            var lname = document.signup.lname.value;
+            var address = document.signup.address.value;
+            var pwd = document.signup.pwd.value;
+            var uname = document.signup.uname.value;
+
+            if(fname=="" ||lname =="" ||address=="" ||uname==""||pwd==""){
+              alert("Fields should not be blank");
+              return false;
+          }
+
+          var firstnameRegex = '[a-zA-Z]';
+          var firstnameResult = fname.match(firstnameRegex);
+
+          if(!firstnameResult){
+            return false;
+          }
+
+          var lastnameRegex = '[a-zA-Z]';
+          var lastnameResult = lname.match(lastnameRegex);
+
+          if(!lastnameResult){
+            return false;
+          }
+
+          var addressRegex = '[a-zA-Z]';
+          var addressResult = address.match(addressRegex);
+
+          if(!addressResult){
+            return false;
+          }
+
+          var usernameRegex = '[a-zA-Z0-9]';
+          var usernameResult = uname.match(usernameRegex);
+
+          if(!usernameResult){
+            return false;
+          }
+
+
+          var passwordRegex = '[a-zA-Z0-9|\W].{6,}';
+          var passwordResult = pwd.match(passwordRegex);
+
+          if(!passwordResult){
+            return false;
+          }
+
+          console.log('here');
+          
+
+         var users = new Array();
+         var obj={
+           fname,lname,pwd,address,uname
+         }
+
+        users.push(obj);
+
+
+          // localStorage.setItem('fname', fname);
+          // localStorage.setItem('lname', lname);
+          // localStorage.setItem('address', address);
+          // localStorage.setItem('pwd', pwd);
+          // localStorage.setItem('uname', uname);
+
+         console.log(users);
+ 
+          document.write(window.open('login.html'));
+         }
+
+
+// Login validation 
 
 function validation(){
-  var uname = document.login.uname.value;
-  var pwd = document.login.pwd.value;
+  var uname2 = document.login.uname2.value;
+  var pwd2 = document.login.pwd2.value;
 
-  if(uname=="")
-  {
-      alert("Username should not be blank");
-      return;
+  if(uname2=="" ||pwd2==""){
+      alert("Fields should not be blank");
+      return false;
   }
-  else if(pwd =="")
-  { 
-    alert("Password should not be blank");
-    return;
+  check();
+ }
+
+ 
+ // Checking function
+
+  function check(){
+    var storedName = localStorage.getItem('uname');
+    var storedPwd = localStorage.getItem('pwd');
+
+    // entered data from the login-form
+    var uname2 = document.getElementById('uname2');
+    var pwd2 = document.getElementById('pwd2');
+
+    // check if stored data from register-form is equal to data from login form
+    if(uname2.value !== storedName || pwd2.value !== storedPwd) {
+        alert('ERROR');
+        document.write(window.open('index.html'));
+    }else {
+        alert('You are logged in.');
+        document.write(window.open('dashboard.html'));
+    }
   }
-  var usenameRegex = "(*[a-z])(*[A-Z]).{4,}";
-  var passwordRegex = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
-  /* var passwordResult = pwd .match(passwordRegex); */
-  if((pwd.match(passwordRegex)) && (uname.match(usenameRegex)))
-  {
 
-      document.write(window.open('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match'));
-     
+  function login(){
+    document.write(window.open('login.html'));
   }
-  else{ 
-      alert('Wrong...!')
-  }
-  /* var passwordRegex = "(?=.*[a-z])(?=.*[A-Z]).{2,}";
-  if)
-  {
-
-    document.write(window.open('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match'));
-     
-  }
-  else{ 
-      alert('Wrong...!')
-  } */
-
-}
-
-// For sign-up page
-
-function register() {
-  var fname = document.login.fname.value;
-  var lname = document.login.lname.value;
-  var address = document.login.address.value;
-
-  if(fname=="" ||lname =="" ||address==""){
-    alert("Fields should not be blank");
-    return;
-}
-
-var firstnameRegex = '[a-zA-Z]';
-var firstnameResult = fname.match(firstnameRegex);
-
-if(!firstnameResult){
-  alert("invalid");
-}
-
-var lastnameRegex = '[a-zA-Z]';
-var lastnameResult = lname.match(lastnameRegex);
-
-if(!lastnameRegex){
-  alert("invalid");
-}
-
-var addressRegex = '[a-zA-Z]';
-var addressResult = address.match(addressRegex);
 
 
-document.write(window.open('https://www.the-art-of-web.com/javascript/validate-password/'));
-
-
-
-}
 
 

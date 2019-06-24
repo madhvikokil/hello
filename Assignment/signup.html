@@ -7,30 +7,21 @@
         <link rel="stylesheet" href="stylesheet.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <script src="script.js">
+        <script src="script.js"></script>
         
         </script>
     </head>
     <title> JavaScript Assignment </title>
     <body> 
-       
-           
-            <div class= "login-container">
-                <form name="login" method="post" >
-                Username : <input type="text" placeholder="Enter Username" name="uname" value=""><br><br>
-                Password : <input type="password" placeholder="Enter Password" name="pwd" value=""><br><br>
-                    <input type="submit" value="Submit" onclick="validation()">
-                  
-            </div>
-           
-
-            <div class="signup-container">
-                <div class="profile-photo">
-
-                </div><br>
+        <div class="signup-container">
+                <div class="login" onclick="login()">LOGIN</div> <br><br>
+                    <form name="signup">
+               
                
                 Firstname : <input type="text" placeholder="Enter name" name="fname" value=""><br><br>
                 Lastname : <input type="text" placeholder="Enter Lastname" name="lname" value=""><br><br>
+                Username : <input type="username" placeholder="Enter Username" name="uname" value=""><br><br>
+                Password : <input type="password" placeholder="Enter Password" name="pwd" value=""><br><br>
 
                 <h4> Gender :</h4>
                 <input type="radio" name="gender" value="radio"> Male<br><br>
@@ -40,10 +31,8 @@
 
                 <input type="submit" value="Submit" onclick="register()">
              
+            </div> 
             </form> 
-            </div>
-   
-        
-
-    </body>
-</html>
+            
+</body>
+        </html>

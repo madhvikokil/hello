@@ -2,14 +2,16 @@
 <html>
 <head>
     <link rel="stylesheet" href="stylesheet2.css">
-    <script src = script2.js></script>
+   <script src ="script2.js"></script>
 </head>
 <body>
 
-<div id="myDIV" class="header">
+  <div class="logout" onclick="logout()">LOGOUT</div>
+
+<div id="div1" class="header">
   <h1>To Do List</h1>
-  <input type="text" id="myInput" placeholder="Add List">
-  <span onclick="newElement()" class="addBtn">Add</span>
+ <input type="text" id="giveInput" placeholder="Add List Items"><br><br><br>
+ <div onclick="addElement()" class="add-button">Add</div> 
 </div>
 
 <ul id="myUL">
